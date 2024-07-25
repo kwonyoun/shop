@@ -11,4 +11,12 @@ public class TestController {
         return "test";
     }
 
+    @GetMapping("/test")
+    public String test2(){
+        return "test";
+    }
+    @GetMapping("/test3")
+    public String test3(){
+        return "test3";
+    }
 }
