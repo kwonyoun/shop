@@ -26,8 +26,8 @@
         <tbody>
         <tr th:each = "board: ${list}">
             <td th:text="${board.boardId}">1</td>
-            <td th:text="${board.boardTitle}">1</td>
-            <td th:text="${board.boardContent}">1</td>
+            <td><a th:href="@{board/{boardId}(boardId=${board.boardId})}" th:text="${board.boardId}">글 ID</a></td>
+            <td><a th:href="@{board/{boardId}(boardId=${board.boardId})}" th:text="${board.boardTitle}">제목</a></td>
             <td>
                 <a th:text="${board.boardWriter}" ></a>
             </td>

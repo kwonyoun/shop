@@ -9,4 +9,7 @@ import java.util.List;
 public interface BoardDao {
     List<BoardDto> findAll();
     boolean save(BoardDto board);
+    BoardDto find(int board);
+
+    boolean update(int boardId, String boardTitle, String boardContent);
 }

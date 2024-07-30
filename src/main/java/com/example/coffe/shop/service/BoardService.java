@@ -23,4 +23,10 @@ public class BoardService {
         return  boardDao.save(board);
     }
 
+    //게시글 출력
+    public BoardDto find(int board) {return  boardDao.find(board); }
+
+    //게시글 수정
+    public boolean update(int id, String title, String cont){ return  boardDao.update(id, title, cont); }
+
 }

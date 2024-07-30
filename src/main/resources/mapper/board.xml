@@ -12,4 +12,12 @@
         insert into coffee_board values (default, #{boardTitle}, #{boardContent},#{boardWriter}, 0, now() );
     </insert>
 
+    <select id="find" parameterType="int" resultType="com.example.coffe.shop.dto.BoardDto">
+        select * from coffee_board where board_id = ${boardId};
+    </select>
+
+    <update id="update" parameterType="com.example.coffe.shop.dto.BoardDto">
+        update coffee_board set board_title = #{boardTitle}, board_content = #{boardContent} where board_id = #{boardId};
+    </update>
+
 </mapper>

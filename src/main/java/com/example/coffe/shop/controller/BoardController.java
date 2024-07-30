@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -40,5 +41,32 @@ public class BoardController {
         Boolean s = boardService.save(board);
         log.info("save = {}", s);
         return "redirect:/board";
+    }
+
+    @GetMapping("{boardId}")
+    public String boardView(@PathVariable("boardId") int boardId, Model model ){
+        BoardDto board = boardService.find(boardId);
+        log.info("boardView = {}", board);
+        model.addAttribute("board", board);
+        return "board";
+    }
+
+    @GetMapping("{boardId}/edit")
+    public String editForm(@PathVariable("boardId") int boardId, Model model){
+        BoardDto board = boardService.find(boardId);
+        log.info("boardView = {}", board);
+        model.addAttribute("board", board);
+        return "boardEditForm";
+    }
+
+    @PostMapping("{boardId}/edit")
+    public String updateForm(@PathVariable("boardId") int boardId, BoardDto board){
+        log.info("updateForm = {}", board.getBoardTitle());
+        boolean updated = boardService.update(boardId, board.getBoardTitle(), board.getBoardContent());
+        if (updated) {
+            return "redirect:/board/{boardId}";
+        } else {
+            return "redirect:/board/{boardId}/edit?error=true";
+        }
     }
 }
