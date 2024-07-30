@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.coffe.shop.dao.BoardDao">
+
+    <select id="findAll" resultType="com.example.coffe.shop.dto.BoardDto">
+        select * from coffee_board
+    </select>
+
+    <insert id="save" parameterType="com.example.coffe.shop.dto.BoardDto">
+        insert into coffee_board values (default, #{boardTitle}, #{boardContent},#{boardWriter}, 0, now() );
+    </insert>
+
+</mapper>

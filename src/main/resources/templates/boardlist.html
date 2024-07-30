@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+
+<div class="layout">
+
+    <div>
+        <a th:href="@{board/addForm}">등록하기</a>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>내용</th>
+            <th>작성자</th>
+            <th>조회수</th>
+            <th>날짜</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "board: ${list}">
+            <td th:text="${board.boardId}">1</td>
+            <td th:text="${board.boardTitle}">1</td>
+            <td th:text="${board.boardContent}">1</td>
+            <td>
+                <a th:text="${board.boardWriter}" ></a>
+            </td>
+            <td th:text="${board.BoardView}">1</td>
+            <td th:text="${board.boardDate}">1</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
