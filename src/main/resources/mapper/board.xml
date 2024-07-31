@@ -20,4 +20,8 @@
         update coffee_board set board_title = #{boardTitle}, board_content = #{boardContent} where board_id = #{boardId};
     </update>
 
+    <delete id="delete" parameterType="int">
+        delete from coffee_board where board_id = ${boardId};
+    </delete>
+
 </mapper>
