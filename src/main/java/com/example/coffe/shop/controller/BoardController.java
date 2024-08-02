@@ -3,8 +3,8 @@ package com.example.coffe.shop.controller;
 
 import com.example.coffe.shop.dto.BoardDto;
 import com.example.coffe.shop.service.BoardService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,11 +16,11 @@ import java.util.List;
 
 @Controller
 @RequestMapping("board")
+@RequiredArgsConstructor
 @Slf4j
 public class BoardController {
 
-    @Autowired
-    BoardService boardService;
+    private final BoardService boardService;
 
     @GetMapping
     public String board(Model model){

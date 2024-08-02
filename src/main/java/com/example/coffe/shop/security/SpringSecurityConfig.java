@@ -15,12 +15,12 @@ public class SpringSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/login").permitAll()
+                        .requestMatchers("/login", "/signup").permitAll()
                         .anyRequest().authenticated()
                 )
 				.formLogin(formLogin -> formLogin
 						.loginPage("/login")
-						.defaultSuccessUrl("/", true))
+						.defaultSuccessUrl("/home", true))
                 .logout((logout) -> logout
                         .logoutSuccessUrl("/")
                         .invalidateHttpSession(true));
@@ -29,8 +29,8 @@ public class SpringSecurityConfig {
     }
 
     // 패스워드 인코더로 사용할 빈 등록
-//    @Bean
-//    public BCryptPasswordEncoder bCryptPasswordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 }

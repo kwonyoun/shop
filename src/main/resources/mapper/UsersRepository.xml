@@ -7,4 +7,8 @@
         select*from coffee_users where user_id = #{userId};
     </select>
 
+    <insert id="save" parameterType="com.example.coffe.shop.dto.Users">
+        insert into coffee_users values (default, #{userId}, #{userPw}, #{roles});
+    </insert>
+
 </mapper>
