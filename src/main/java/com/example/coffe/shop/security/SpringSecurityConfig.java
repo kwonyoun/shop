@@ -20,7 +20,10 @@ public class SpringSecurityConfig {
                 )
 				.formLogin(formLogin -> formLogin
 						.loginPage("/login")
-						.defaultSuccessUrl("/home", true))
+                        .loginProcessingUrl("/login-process")
+                        .usernameParameter("username")
+                        .passwordParameter("password")
+						.defaultSuccessUrl("/", true))
                 .logout((logout) -> logout
                         .logoutSuccessUrl("/")
                         .invalidateHttpSession(true));
