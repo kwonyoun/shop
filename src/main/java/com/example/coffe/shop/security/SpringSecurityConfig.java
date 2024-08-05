@@ -15,7 +15,7 @@ public class SpringSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/login", "/signup").permitAll()
+                        .requestMatchers("/", "/login", "/signup").permitAll()
                         .anyRequest().authenticated()
                 )
 				.formLogin(formLogin -> formLogin
@@ -25,8 +25,11 @@ public class SpringSecurityConfig {
                         .passwordParameter("password")
 						.defaultSuccessUrl("/", true))
                 .logout((logout) -> logout
-                        .logoutSuccessUrl("/")
-                        .invalidateHttpSession(true));
+                        .logoutSuccessHandler((request, response, authentication) -> {
+                            response.sendRedirect("/");
+                        }) // 로그아웃 성공 핸들러
+                        .deleteCookies("remember-me") // 로그아웃 후 삭제할 쿠키 지정
+                        );
 
         return http.build();
     }

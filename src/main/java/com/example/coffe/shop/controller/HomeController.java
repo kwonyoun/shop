@@ -13,6 +13,7 @@ public class HomeController {
 
     @GetMapping
     public String index(@AuthenticationPrincipal User user, Model model){
+        log.info("index = {}", user.getUsername());
         model.addAttribute("loginId", user.getUsername());
         model.addAttribute("loginRoles", user.getAuthorities());
         model.addAttribute("data", "hello?");
