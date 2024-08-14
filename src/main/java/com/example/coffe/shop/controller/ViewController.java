@@ -23,7 +23,7 @@ public class ViewController {
         return "signup";
     }
 
-    @GetMapping("/logout")
+    @GetMapping("logout")
     public String logout(HttpServletRequest request, HttpServletResponse response){
         new SecurityContextLogoutHandler().logout(request, response,
                 SecurityContextHolder.getContext().getAuthentication());
