@@ -69,4 +69,16 @@ public class BoardController {
             return "redirect:/board/{boardId}/edit?error=true";
         }
     }
+
+    @GetMapping("{boardId}/delete")
+    public String deleteform(@PathVariable("boardId") int boardId){
+        boolean delete = boardService.delete(boardId);
+        log.info("deleteform = {}", delete);
+        if (delete) {
+            return "redirect:/board";
+        } else {
+            return "redirect:/board/{boardId}/delete?error=true";
+        }
+
+    }
 }

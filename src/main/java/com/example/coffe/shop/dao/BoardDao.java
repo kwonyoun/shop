@@ -12,4 +12,6 @@ public interface BoardDao {
     BoardDto find(int board);
 
     boolean update(int boardId, String boardTitle, String boardContent);
+
+    boolean delete(int boardId);
 }

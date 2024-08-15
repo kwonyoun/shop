@@ -29,4 +29,6 @@ public class BoardService {
     //게시글 수정
     public boolean update(int id, String title, String cont){ return  boardDao.update(id, title, cont); }
 
+    //게시글 삭제
+    public boolean delete(int id){ return  boardDao.delete(id); }
 }
