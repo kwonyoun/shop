@@ -42,6 +42,8 @@ dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
+	implementation 'net.nurigo:sdk:4.3.0' //문자 인중
+
 }
 
 tasks.named('test') {
