@@ -2,16 +2,16 @@ package com.example.coffe.shop.service;
 
 import com.example.coffe.shop.dao.BoardDao;
 import com.example.coffe.shop.dto.BoardDto;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class BoardService {
 
-    @Autowired
-    public BoardDao boardDao;
+    private final BoardDao boardDao;
 
     //게시글 전체 출력
     public List<BoardDto> findAll() {
