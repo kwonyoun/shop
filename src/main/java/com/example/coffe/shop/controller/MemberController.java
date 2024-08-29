@@ -2,11 +2,12 @@ package com.example.coffe.shop.controller;
 
 import com.example.coffe.shop.dto.Users;
 import com.example.coffe.shop.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -21,6 +22,8 @@ public class MemberController {
         userService.save(dto);
         return "home";
     }
+
+
 
 
 }

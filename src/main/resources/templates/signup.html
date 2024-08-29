@@ -20,7 +20,8 @@
                         <input type="hidden" th:name="${_csrf?.parameterName}" th:value="${_csrf?.token}" />
                         <div class="mb-3">
                             <label class="form-label text-white">User Id</label>
-                            <input type="text" class="form-control" name="userId">
+                            <input type="text" class="form-control" id="userId" name="userId">
+                            <button type="button" id="checkId">중복확인</button>
                         </div>
                         <div class="mb-3">
                             <label class="form-label text-white">User Password</label>
@@ -35,13 +36,36 @@
                             <button type="button" id="enterBtn">확인</button>  <!-- 인증번호와 내가 입력창에 입력한 인증번호 비교하는 창 -->
                         </div>
                         <script type="text/javascript">
+                            $('#checkId').click(function () {
+                                const userId = $('#userId').val();
+
+                                if (!userId) {
+                                    alert('아이디를 입력해주세요.');
+                                    return;
+                                }
+                                $.ajax({
+                                    url: '/check/sendId/' + encodeURIComponent(userId),
+                                    type: 'GET',
+                                    success: function (data) {
+                                        alert(data)
+                                        if (data === true){
+                                            alert('이미 사용 중인 아이디입니다.');
+                                        }
+                                        else {
+                                            alert('사용 가능한 아이디입니다.');
+                                        }
+                                    }
+                                }
+                                )
+                            })
+
                             $('#send').click(function() {
 
                                 const to = $('#to').val();
                                 alert("to : "+to)
 
                                 $.ajax ({
-                                    url: '/sms/sendSMS',
+                                    url: '/check/sendSMS',
                                     type: 'POST',
                                     data: {
                                         "phoneNum" : to

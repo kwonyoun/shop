@@ -11,4 +11,10 @@
         insert into coffee_users values (default, #{userId}, #{userPw}, #{roles});
     </insert>
 
+    <select id="checkById" parameterType="String">
+        select*from coffee_users where user_id = #{userId};
+    </select>
+
+
+
 </mapper>
