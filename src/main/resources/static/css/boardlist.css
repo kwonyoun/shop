@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: #f5f5f5;
     color: #333;
+    box-sizing: border-box; /* 전체적인 레이아웃 정리를 위한 박스 사이징 설정 */
 }
 
 .layout {
@@ -12,6 +13,7 @@ body {
     margin: 0 auto;
     padding: 20px;
     max-width: 1200px;
+    margin-top: 80px; /* 헤더 높이에 맞춰 상단 여백 조정 */
 }
 
 header {
@@ -19,6 +21,11 @@ header {
     padding: 20px;
     text-align: center;
     color: white;
+    position: fixed; /* 헤더를 고정하여 스크롤 시에도 항상 상단에 표시 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* 헤더가 다른 콘텐츠 위에 표시되도록 z-index 설정 */
 }
 
 header h1 {

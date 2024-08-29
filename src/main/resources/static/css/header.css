@@ -1,0 +1,158 @@
+/* header.css */
+
+/* 기본 스타일 */
+body, ul, li, h4, p {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 헤더 스타일 */
+/* header.css */
+#header {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e1e1e1;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    height: 100px; /* 헤더 높이 설정 */
+}
+
+.header_wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%; /* 헤더의 높이에 맞게 설정 */
+}
+
+
+/* 로고 스타일 */
+.logo img {
+    width: 120px;
+}
+
+/* 네비게이션 스타일 */
+.nav_wrap {
+    display: flex;
+    align-items: center;
+}
+
+.nav_wrap li {
+    margin-left: 20px;
+    position: relative;
+    font-size: 14px;
+}
+
+.nav_wrap .search {
+    display: flex;
+    align-items: center;
+}
+
+#search_area {
+    width: 180px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+#search_icon {
+    background: none;
+    border: none;
+    margin-left: -30px;
+}
+
+/* 카테고리 스타일 */
+.category {
+    margin-top: 10px;
+}
+
+.category_wrap {
+    display: flex;
+    justify-content: space-around;
+}
+
+.category_wrap li {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+.category_wrap li:hover {
+    color: #006341;
+}
+
+/* 서브메뉴 스타일 */
+.sub_menu {
+    display: none;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.sub_menu_wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.sub_menu_text {
+    width: 18%;
+}
+
+.sub_menu_title {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.sub_menu ul {
+    margin-top: 5px;
+}
+
+.sub_menu ul li {
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.sub_menu ul li a:hover {
+    color: #006341;
+    text-decoration: underline;
+}
+
+.sub_footer {
+    padding: 20px 0;
+    background-color: #f1f1f1;
+}
+
+.sub_footer_wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sub_footer_wrap p {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.sub_footer_wrap span {
+    font-size: 12px;
+    color: #666;
+}
+
+/* 서브메뉴가 활성화되었을 때 표시 */
+.sub_menu.show {
+    display: block;
+}

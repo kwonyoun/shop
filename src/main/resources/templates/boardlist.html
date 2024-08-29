@@ -5,14 +5,13 @@
     <title>Title</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
     <link th:href="@{/css/boardlist.css}" rel="stylesheet">
+    <link th:href="@{/css/header.css}" rel="stylesheet">
+    <script th:src="@{/js/header.js}"></script>
 </head>
+<div th:replace="~{header :: bodyHeader}"></div>
 <body>
 
 <div class="layout">
-
-    <div>
-        <a th:href="@{board/addForm}">등록하기</a>
-    </div>
 
     <table>
         <thead>
@@ -38,6 +37,11 @@
         </tr>
         </tbody>
     </table>
+
+    <div>
+        <a th:href="@{board/addForm}">등록하기</a>
+    </div>
+
 </div>
 
 </body>

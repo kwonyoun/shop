@@ -15,10 +15,11 @@ public class SmsController {
 
     private final SmsService smsService;
 
-    @PostMapping("send")
-    public ResponseEntity<?> SendSMS(@RequestBody @Valid SmsRequestDto smsRequestDto){
-        SingleMessageSentResponse b = smsService.SendSms(smsRequestDto);
+    @PostMapping("sendSMS")
+    public ResponseEntity<?> SendSMS(@Valid SmsRequestDto smsRequestDto){
+        String certificationCode = Integer.toString((int)(Math.random() * (999999 - 100000 + 1)) + 100000); // 6자리 인증 코드를 랜덤으로 생성
+        SingleMessageSentResponse b= smsService.SendSms(smsRequestDto, certificationCode);
         log.info("SendSMS = {}", b);
-        return ResponseEntity.ok("문자를 전송했습니다.");
+        return ResponseEntity.ok(certificationCode);
     }
 }

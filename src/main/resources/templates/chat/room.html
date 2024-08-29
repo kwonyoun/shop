@@ -31,7 +31,7 @@
 
         var roomName = [[${room.name}]];
         var roomId = [[${room.roomId}]];
-        var username = "youn";
+        var username = [[${#authentication.principal.username}]];
 
         console.log(roomName + ", " + roomId + ", " + username);
 

@@ -1,22 +1,29 @@
+<!-- header.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Header</title>
+    <link th:href="@{/css/header.css}" rel="stylesheet">
+    <script th:src="@{/js/header.js}"></script>
+</head>
+<body>
 <!-- header -->
-<div id="header" class="clear">
+<div th:fragment="bodyHeader" id="header" class="clear">
     <!-- 로고 -->
     <div class="header_wrap clear">
         <div class="logo">
             <a href="https://www.starbucks.co.kr">
-                <img src="assets/img/logo.png" alt="스타벅스 로고" />
+                <img src="/image/starbucks-logo.png" alt="스타벅스 로고" />
             </a>
         </div>
         <!-- nav 메뉴 -->
         <div class="nav">
             <ul class="nav_wrap">
                 <li><a href="#">Sign In</a></li>
-                <li><a href="#">My Starbucks</a></li>
-                <li><a href="#">Customer Service & Ideas</a></li>
                 <li><a href="#">Find a Store</a></li>
                 <li class="search">
                     <input id="search_area" type="text" placeholder="통합검색" />
-                    <button id="search_icon"><img src="assets/img/icon_magnifier_black.png" /></button>
+<!--                    <button id="search_icon"><img src="assets/img/icon_magnifier_black.png" /></button>-->
                 </li>
             </ul>
         </div>
@@ -26,8 +33,6 @@
                 <li id="coffee">COFFEE</li>
                 <li id="menu">MENU</li>
                 <li id="store">STORE</li>
-                <li id="responsibility">RESPONSIBLITY</li>
-                <li id="rewards">STARBUCKS REWARDS</li>
                 <li id="wnew">WHAT'S NEW</li>
             </ul>
         </div>
@@ -328,3 +333,4 @@
         </div>
     </div>
 </div>
+</body>
