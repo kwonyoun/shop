@@ -14,7 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SpringSecurityConfig {
 
     private static final String[] INCLUDE_URL_ARRAY = {
-            "/css/**", "/signup", "/", "/login"
+            "/css/**", "/signup", "/", "/login", "/check/**"
     };
 
     @Bean

@@ -1,5 +1,6 @@
 package com.example.coffe.shop.sms;
 
+import com.example.coffe.shop.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,5 +22,15 @@ public class SmsController {
         SingleMessageSentResponse b= smsService.SendSms(smsRequestDto, certificationCode);
         log.info("SendSMS = {}", b);
         return ResponseEntity.ok(certificationCode);
+    }
+
+    private final UserService userService;
+
+    @GetMapping("sendId/{userId}")
+    public ResponseEntity<Boolean> checkById(@PathVariable String userId){
+        Boolean isAvailable = userService.checkById(userId);
+        log.info("checkById = {}", isAvailable);
+
+        return ResponseEntity.ok(isAvailable);
     }
 }

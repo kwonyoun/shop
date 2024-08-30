@@ -20,19 +20,19 @@
                         <input type="hidden" th:name="${_csrf?.parameterName}" th:value="${_csrf?.token}" />
                         <div class="mb-3">
                             <label class="form-label text-white">User Id</label>
-                            <input type="text" class="form-control" id="userId" name="userId">
+                            <input type="text" class="form-control" id="userId" name="userId" required>
                             <button type="button" id="checkId">중복확인</button>
                         </div>
                         <div class="mb-3">
                             <label class="form-label text-white">User Password</label>
-                            <input type="password" class="form-control" name="userPw">
+                            <input type="password" class="form-control" name="userPw" required>
                         </div>
 
                         <div id="contents">
-                            받는사람 : <input type="text" id="to" name="to"/>   <!-- 인증번호 받을사람 휴대폰 번호 -->
+                            받는사람 : <input type="text" id="to" name="to" required/>   <!-- 인증번호 받을사람 휴대폰 번호 -->
                             <button type="button" id="send">전송</button><br> <!-- 문자보내는 전송버튼 -->
 
-                            인증번호 : <input type="text" id="userNum">   <!-- 인증번호 입력창 -->
+                            인증번호 : <input type="text" id="userNum" required>   <!-- 인증번호 입력창 -->
                             <button type="button" id="enterBtn">확인</button>  <!-- 인증번호와 내가 입력창에 입력한 인증번호 비교하는 창 -->
                         </div>
                         <script type="text/javascript">
@@ -44,10 +44,10 @@
                                     return;
                                 }
                                 $.ajax({
-                                    url: '/check/sendId/' + encodeURIComponent(userId),
+                                    url: '/check/sendId/'+ userId,
                                     type: 'GET',
                                     success: function (data) {
-                                        alert(data)
+                                        // alert(data)
                                         if (data === true){
                                             alert('이미 사용 중인 아이디입니다.');
                                         }
