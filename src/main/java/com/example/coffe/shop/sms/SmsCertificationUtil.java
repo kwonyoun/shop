@@ -27,7 +27,7 @@ public class SmsCertificationUtil {
     // 단일 메시지 발송
     public SingleMessageSentResponse sendSMS(String to, String certificationCode){
         Message message = new Message(); // 새 메시지 객체 생성
-        message.setFrom("01027282470"); // 발신자 번호 설정
+        message.setFrom(""); // 발신자 번호 설정
         message.setTo(to); // 수신자 번호 설정
         message.setText("[test]본인확인 인증번호는 " + certificationCode + "입니다."); // 메시지 내용 설정
 
