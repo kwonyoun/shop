@@ -4,25 +4,104 @@
     <title>채팅 목록</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        li a {
+            color: #333;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        li:hover {
+            background-color: #f2f6fc;
+        }
+
+        li a:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input.form-control {
+            flex: 1;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button.btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            background-color: #2ecc71;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button.btn:hover {
+            background-color: #27ae60;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
-    <div>
-        <ul th:each="room : ${list}">
-            <li><a th:href="@{/chat/room(roomId=${room.roomId})}">[[${room.name}]]</a></li>
-        </ul>
-    </div>
+    <h2>채팅방 목록</h2>
+    <ul th:each="room : ${list}">
+        <li><a th:href="@{/chat/room(roomId=${room.roomId})}">[[${room.name}]]</a></li>
+    </ul>
+    <form th:action="@{/chat/room}" method="post">
+        <input type="text" name="name" class="form-control" placeholder="새 채팅방 이름 입력">
+        <button class="btn btn-secondary btn-create">개설하기</button>
+    </form>
 </div>
-<form th:action="@{/chat/room}" method="post">
-    <input type="text" name="name" class="form-control">
-    <button class="btn btn-secondary">개설하기</button>
-</form>
 
 <script th:inline="javascript">
     $(document).ready(function(){
 
         const roomName = [[${roomName}]];
-
         if(roomName != null)
             alert(roomName + "방이 개설되었습니다.");
 

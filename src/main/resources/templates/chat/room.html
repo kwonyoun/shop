@@ -4,6 +4,100 @@
     <title>채팅방</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 80vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        #msgArea {
+            flex: 1;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #fafafa;
+        }
+
+        .message {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 10px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .message.user .message-content {
+            background-color: #dcf8c6;
+            color: #000;
+        }
+
+        .message.bot .message-content {
+            background-color: #e4e6eb;
+            color: #000;
+        }
+
+        .input-group {
+            display: flex;
+        }
+
+        #msg {
+            flex: 1;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        #button-send {
+            margin-left: 10px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #button-send:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 
 <div class="container">
@@ -13,11 +107,9 @@
     <div>
         <div id="msgArea" class="col"></div>
         <div class="col-6">
-            <div class="input-group mb-3">
-                <input type="text" id="msg" class="form-control">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="button-send">전송</button>
-                </div>
+            <div class="input-group">
+                <input type="text" id="msg" class="form-control" placeholder="메시지를 입력하세요">
+                <button type="button" id="button-send">전송</button>
             </div>
         </div>
     </div>

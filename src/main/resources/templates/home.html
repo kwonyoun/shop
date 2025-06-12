@@ -3,21 +3,66 @@
 <head>
     <title>Index</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            padding: 40px;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .auth-info {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .auth-info span {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .auth-links a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .auth-links a:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
 <div>
 
 
     <!-- 인증된 사용자에게만 보이는 영역 -->
-    <div sec:authorize="isAuthenticated()">
+    <div sec:authorize="isAuthenticated()" class="auth-info">
         사용자 이름: <span sec:authentication="name"></span>
         권한: <span sec:authentication="principal.authorities"></span>
     </div>
-    <!-- 로그인을 안한 상태 -->
-    <a sec:authorize="isAnonymous()" th:href="@{/login}">로그인</a>
+    <div class="auth-links">
+        <!-- 로그인을 안한 상태 -->
+        <a sec:authorize="isAnonymous()" th:href="@{/login}">로그인</a>
 
-    <!-- 로그인을 한 상태 -->
-    <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
+        <!-- 로그인을 한 상태 -->
+        <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
+        <a sec:authorize="isAuthenticated()" th:href="@{/menu}">메뉴</a>
+        <a sec:authorize="isAuthenticated()" th:href="@{/chat/rooms}">채팅방</a>
+    </div>
 
 </div>
 </body>
