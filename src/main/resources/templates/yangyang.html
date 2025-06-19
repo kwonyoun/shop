@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>양양 쏠비치 여행 가이드</title>
+  <style>
+    body {
+      font-family: 'Pretendard', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    #container {
+      width: 794px;
+      height: 1123px;
+      margin: 20px auto;
+      padding: 40px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #0E6D62;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin-top: 25px;
+      color: #4c8689;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    #summary {
+      margin-top: 30px;
+      background: #f0f6f6;
+      border: 1px solid #4c8689;
+      padding: 12px;
+    }
+
+    button {
+      margin: 20px auto;
+      display: block;
+      background: #0E6D62;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+  </style>
+</head>
+<body>
+  <button onclick="downloadPDF()">PDF 다운로드</button>
+
+  <div id="container">
+    <h2>2025/06/24 ~ 2025/06/25</h2>
+    <h1>양양 쏠비치 여행 가이드</h1>
+
+    <h3>1. 쏠비치 내부 & 프라이빗 비치</h3>
+    <p>리조트 안에 위치한 프라이빗 비치는 외부인 대부분 출입이 제한되어 조용하게 산책하며 바다를 감상하기 좋아요.
+리조트 내 산책로와 Rendez-vous Cafe 같은 예쁜 카페도 있어 간단한 음료와 함께 힐링하기 좋습니다.   </p>
+
+    <h3>2. 오산해변 & 오산리 선사유적박물관</h3>
+    <p>도보 7분 거리인 오산해변은 잘 정비된 해변으로 산책하기 좋아요.
+인근 박물관도 함께 들르면 역사 체험까지!    </p>
+
+    <h3>3. Ocean Play 워터파크</h3>
+    <p>쏠비치 내에 있는 워터파크는 실내외 풀, 워터슬라이드, 유수풀까지 다양하게 즐길 수 있어요.
+    </p>
+
+    <h3>4. 선셋바 & 비치극장</h3>
+    <p>저녁엔 해변에서 운영되는 선셋 시네마에서 감성 영화 한 편, 분위기 좋은 바다 뷰까지 완벽!
+    </p>
+
+    <h3>5. 포토 스팟 & 산책 포인트</h3>
+    <p>스페인풍 건물과 포토존이 많은 리조트! 특히 해 질 무렵엔 더욱 운치 있는 분위기를 느낄 수 있어요.
+    </p>
+
+    <div id="summary">
+      <h4>📌 요약 정리</h4>
+      <ul>
+        <li>프라이빗 비치: 조용한 산책 가능</li>
+        <li>오산해변: 도보 7분 거리</li>
+        <li>워터파크: 실내외 물놀이 완비</li>
+        <li>선셋 시네마: 저녁 영화 감상</li>
+        <li>포토존: 리조트 내 스페인풍 포토 스팟 다수</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script>
+    async function downloadPDF() {
+      const container = document.getElementById("container");
+      const canvas = await html2canvas(container, { scale: 2 });
+      const imgData = canvas.toDataURL("image/png");
+
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF("p", "px", [794, 1123]);
+
+      pdf.addImage(imgData, "PNG", 0, 0, 794, 1123);
+      pdf.save("양양쏠비치_여행가이드.pdf");
+    }
+  </script>
+</body>
+</html>
