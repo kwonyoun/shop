@@ -7,17 +7,13 @@ import lombok.Setter;
 @Setter
 public class MenuDto {
     private int id;
-    private String prodCode;
-    private String name;
-    private String engName;
-    private String description;
-    private String imageUrl;
-    private String volume;
-    private String calorie;
-    private String saturatedFat;
-    private String protein;
-    private String sodium;
-    private String sugar;
-    private String caffeine;
-    private String allergy;
+    private String category;         // category
+    private String volume;           // volume
+    private String menuName;         // menu_name
+    private int kcal;                // kcal
+    private int sugars;              // sugars
+    private int protein;             // protein
+    private int sodium;              // sodium
+    private float saturatedFat;      // saturated_fat
+    private int caffeine;            // caffeine
 }

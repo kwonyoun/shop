@@ -10,14 +10,15 @@
 
     <insert id="insertMenu" parameterType="com.example.coffe.shop.dto.MenuDto">
         INSERT INTO coffee_menu (
-            prod_code, name, eng_name, description, image_url,
-            volume, calorie, saturated_fat, protein, sodium,
-            sugar, caffeine, allergy
+            category, volume, menu_name,
+            kcal, sugars, protein, sodium,
+            saturated_fat, caffeine
         ) VALUES (
-            #{prodCode}, #{name}, #{engName}, #{description}, #{imageUrl},
-            #{volume}, #{calorie}, #{saturatedFat}, #{protein}, #{sodium},
-            #{sugar}, #{caffeine}, #{allergy}
+            #{category}, #{volume}, #{menuName},
+            #{kcal}, #{sugars}, #{protein}, #{sodium},
+            #{saturatedFat}, #{caffeine}
         )
     </insert>
+
 
 </mapper>

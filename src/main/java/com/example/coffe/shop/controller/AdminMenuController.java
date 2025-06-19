@@ -18,7 +18,7 @@ public class AdminMenuController {
 
         @GetMapping("/menu/load")
         public String loadMenu() {
-            menuService.insertFromCsv("data/starbucks-menu-list.csv");
+            menuService.insertFromCsv("data/starbucks_menu_list.csv");
             return "메뉴 데이터 DB 저장 완료";
         }
     

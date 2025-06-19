@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Title</title>
+    <title>Menu List</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -63,37 +63,29 @@
         <thead>
         <tr>
             <th>번호</th>
-            <th>제목</th>
-            <th>영어명</th>
-            <th>이미지</th>
-            <th>설명</th>
+            <th>분류</th>
             <th>용량</th>
+            <th>메뉴명</th>
             <th>칼로리</th>
-            <th>포화지방</th>
+            <th>당류</th>
             <th>단백질</th>
             <th>나트륨</th>
-            <th>당류</th>
+            <th>포화지방</th>
             <th>카페인</th>
-            <th>알레르기</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each = "board: ${list}">
-            <td th:text="${board.id}">1</td>
-            <td th:text="${board.name}">1</td>
-            <td th:text="${board.engName}">1</td>
-            <td>
-                <img th:src="${board.imageUrl}" alt="${board.name}">
-            </td>
-            <td th:text="${board.description}">1</td>
-            <td th:text="${board.volume}">1</td>
-            <td th:text="${board.calorie}">1</td>
-            <td th:text="${board.saturatedFat}">1</td>
-            <td th:text="${board.protein}">1</td>
-            <td th:text="${board.sodium}">1</td>
-            <td th:text="${board.sugar}">1</td>
-            <td th:text="${board.caffeine}">1</td>
-            <td th:text="${board.allergy}">1</td>
+        <tr th:each="menu : ${list}">
+            <td th:text="${menu.id}">1</td>
+            <td th:text="${menu.category}">콜드 브루</td>
+            <td th:text="${menu.volume}">Tall / 355ml</td>
+            <td th:text="${menu.menuName}">바닐라 크림 콜드 브루</td>
+            <td th:text="${menu.kcal}">125</td>
+            <td th:text="${menu.sugars}">11</td>
+            <td th:text="${menu.protein}">3</td>
+            <td th:text="${menu.sodium}">58</td>
+            <td th:text="${menu.saturatedFat}">6</td>
+            <td th:text="${menu.caffeine}">155</td>
         </tr>
         </tbody>
     </table>
