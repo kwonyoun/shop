@@ -2,6 +2,7 @@ package com.example.coffe.shop.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
@@ -19,6 +20,9 @@ public class StoreController {
 
         private final StoreService storeService;
 
+        @Value("${kakao.javascript.key}")
+        private String kakaoKey;
+
         @GetMapping
         public String getStoreList(Model model) {
             List<StoreDto> list = storeService.findAll();
@@ -27,7 +31,8 @@ public class StoreController {
         }
 
         @GetMapping("map")
-        public String getStoreMap() {
+        public String getStoreMap(Model model) {
+            model.addAttribute("kakaoKey", kakaoKey);
             return "storeMap";
         }
         

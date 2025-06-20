@@ -12,7 +12,7 @@
 <h2>스타벅스 매장 지도</h2>
 <div id="map"></div>
 
-<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=881a56d95deaf9e7af94dc9f81a7d461"></script>
+<script th:src="'https://dapi.kakao.com/v2/maps/sdk.js?appkey=' + ${kakaoKey}"></script>
 <script>
     const container = document.getElementById('map');
     const options = {
