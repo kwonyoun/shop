@@ -42,8 +42,8 @@ public class StoreService {
                     StoreDto store = new StoreDto();
 
                     store.setStoreName(line[0]);
-                    store.setX(parseFloatSafe(line[1]));
-                    store.setY(parseFloatSafe(line[2]));
+                    store.setY(parseFloatSafe(line[1]));
+                    store.setX(parseFloatSafe(line[2]));
                     store.setStoreType(line[3]);
                     store.setStoreAddr(line[4]);       
 
