@@ -8,6 +8,7 @@ import com.opencsv.CSVReaderBuilder;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -71,6 +72,11 @@ public class MenuService {
         } catch (Exception e) {
             return 0.0f;
         }
+    }
+
+    public MenuDto findById(@RequestParam Long menuId){
+        MenuDto menu = menuDao.findById(menuId);
+        return menu;
     }
 
 

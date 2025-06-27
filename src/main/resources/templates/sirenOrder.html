@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Siren Order</title>
+</head>
+<body>
+
+<div class="layout">
+    <table>
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>분류</th>
+            <th>용량</th>
+            <th>메뉴명</th>
+            <th>칼로리</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="menu : ${list}">
+            <td th:text="${menu.id}">1</td>
+            <td th:text="${menu.category}">콜드 브루</td>
+            <td th:text="${menu.volume}">Tall / 355ml</td>
+            <td th:text="${menu.menuName}">바닐라 크림 콜드 브루</td>
+            <td th:text="${menu.kcal}">125</td>
+            <td>
+            <form th:action="@{/cart/add}" method="post">
+                    <input type="hidden" name="menuId" th:value="${menu.id}" />
+                    <button type="submit">장바구니 담기</button>
+            </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

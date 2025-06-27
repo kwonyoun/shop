@@ -61,6 +61,7 @@
         <!-- 로그인을 한 상태 -->
         <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
         <a sec:authorize="isAuthenticated()" th:href="@{/menu}">메뉴</a>
+        <a sec:authorize="isAuthenticated()" th:href="@{/sirenOrder}">사이렌오더</a>
         <a sec:authorize="isAuthenticated()" th:href="@{/store}">매장</a>
         <a sec:authorize="isAuthenticated()" th:href="@{/store/map}">지도</a>
         <a sec:authorize="isAuthenticated()" th:href="@{/chat/rooms}">채팅방</a>

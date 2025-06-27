@@ -20,5 +20,9 @@
         )
     </insert>
 
+    <select id="findById" parameterType="long" resultType="com.example.coffe.shop.dto.MenuDto" >
+        select * from coffee_menu where id = #{menuId}
+    </select>
+
 
 </mapper>

@@ -9,4 +9,5 @@ import java.util.List;
 public interface MenuDao {
     List<MenuDto> findAll();
     void insertMenu(MenuDto menu);
+    MenuDto findById(Long menuId);
 }

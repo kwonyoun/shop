@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.coffe.shop.dao.OrderMapper">
+
+    <insert id="insertOrder" parameterType="OrderDto">
+        <selectKey keyProperty="orderId" resultType="long" order="BEFORE">
+            SELECT nextval('orders_seq')  <!-- Oracle/PostgreSQL 시퀀스 예시 -->
+        </selectKey>
+        INSERT INTO orders(order_id, user_id, order_at, total_price)
+        VALUES (#{orderId}, #{userId}, #{orderAt}, #{totalPrice})
+    </insert>
+
+    <update id="updateTotalPrice">
+        UPDATE orders
+        SET total_price = #{total}
+        WHERE order_id = #{orderId}
+    </update>
+
+    <insert id="insertOrderItem" parameterType="OrderItemDto">
+        INSERT INTO order_items(order_item_id, order_id, menu_id, quantity, price)
+        VALUES (order_items_seq.NEXTVAL, #{orderId}, #{menuId}, #{quantity}, #{price})
+    </insert>
+    
+</mapper>
