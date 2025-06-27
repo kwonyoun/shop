@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.coffe.shop.dao.StoreDao">
+
+    <select id="findAll" resultType="com.example.coffe.shop.dto.StoreDto">
+        select*from coffee_store
+    </select>
+    <insert id="insertStoreList" parameterType="com.example.coffe.shop.dto.StoreDto">
+        INSERT INTO coffee_store (
+            store_name, x, y, store_type, store_addr
+        ) VALUES (
+            #{storeName}, #{x}, #{y}, #{storeType}, #{storeAddr}
+        )
+    </insert>
+</mapper>
